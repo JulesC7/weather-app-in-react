@@ -1,0 +1,45 @@
+.search-container {
+  margin: 0 10px;
+}
+.search-bar {
+  margin: 20px auto;
+  max-width: 650px;
+  background: rgba(179, 178, 178, 0.05);
+  box-shadow: 0 8px 9px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(44, 42, 42, 0.18);
+}
+
+.search-label {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+.actual-city {
+  padding: 20px 0 20px 20px;
+}
+.searching-city {
+  text-transform: capitalize;
+  font-weight: 700;
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 40px;
+}
+@media (max-width: 900px) {
+  .searching-city {
+    font-size: 24px;
+  }
+  input.form-control {
+    font-size: 14px;
+  }
+  input.input-group-text {
+    font-size: 14px;
+  }
+  button.current-city.input-group-text.btn.btn-primary {
+    font-size: 14px;
+  }
+}

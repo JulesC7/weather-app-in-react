@@ -1,0 +1,58 @@
+.content {
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 1000px;
+}
+.weather-description {
+  text-transform: capitalize;
+}
+.celsius-fahrenheit {
+  padding: 27px 0 20px 0;
+  font-size: 25px;
+  font-weight: 500;
+}
+.actual-temp {
+  font-size: 80px;
+  font-weight: 300;
+  display: inline;
+  text-align: justify;
+  padding: 0;
+}
+.another-forecast {
+  vertical-align: middle;
+  padding: 20px 0 20px 20px;
+}
+.input-group-text-svg {
+  padding: 10px 0 0 0;
+}
+.temperature-in-the-city .active {
+  cursor: default;
+  color: var(--primary-color);
+}
+
+@media (max-width: 900px) {
+  .actual-temp {
+    font-size: 48px;
+    padding: 20px 0;
+  }
+  span.input-group-text-svg.col-6.d-flex.justify-content-end img {
+    max-width: 50%;
+    height: 50%;
+  }
+  .input-group-text-svg {
+    padding: 0;
+  }
+  div.temperature-in-the-city.col-sm-3 {
+    line-height: 25px;
+  }
+  .input-group-text-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

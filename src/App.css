@@ -36,3 +36,95 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --primary-color: #212529;
+  --secondary-color: white;
+  --accent-color: #0d6efd;
+}
+
+.main {
+  background-image: url("./img/sunset-with-clouds-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main {
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  color: var(--secondary-color);
+  font-size: 48px;
+}
+h4 {
+  font-size: 80px;
+  font-weight: 300;
+  display: inline;
+}
+h5 {
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+}
+.week-weather-temperature {
+  padding: 15px 0 0 0;
+  margin: 0 auto;
+}
+
+.card-body {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  flex: 1;
+}
+.week-weather {
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px;
+  padding: 0px;
+  background: var(--secondary-color);
+  box-shadow: 0 8px 9px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(44, 42, 42, 0.18);
+}
+.week-forecast {
+  margin: 50px auto 30px auto;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 0 0 0 40px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    font-size: 16px;
+  }
+  .wrapper {
+    display: block;
+    margin: 0 15px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  div.card.week-weather.col-sm-1 {
+    margin: 20px 30px;
+  }
+  div.container.short-week-forecast {
+    padding: 0 30px;
+  }
+}
