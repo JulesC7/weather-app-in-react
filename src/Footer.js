@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <p className="open-source">
       <a
-        href="https://github.com/JulesC7/Weather-App-SheCodes.git"
+        href="https://github.com/JulesC7/weather-app-in-react"
         target="_blank"
         className="link"
         rel="noreferrer"
