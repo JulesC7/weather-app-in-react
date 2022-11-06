@@ -8,9 +8,11 @@ import "./App.css";
 export default function App() {
   return (
     <div className="main">
-      <div className="wrapper">
-        <Weather />
-        <Footer />
+      <div className="container">
+        <div className="wrapper">
+          <Weather />
+          <Footer />
+        </div>
       </div>
     </div>
   );
