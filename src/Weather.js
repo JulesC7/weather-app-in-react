@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import Search from "./Search";
+import FormattedDate from "./FormattedDate";
 
 import "./Weather.css";
 
@@ -16,7 +17,7 @@ export default function Weather() {
     setWeatherData({
       city: response.data.name,
       country: response.data.sys.country,
-      day: "Monday 10:00",
+      day: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       wind: Math.round(response.data.wind.speed),
       maxTemp: Math.round(response.data.main.temp_max),
@@ -40,7 +41,9 @@ export default function Weather() {
             <div className="container">
               <div className="row d-flex justify-content-center">
                 <div className="actual-city col-md-3 text-center">
-                  <div>{weatherData.day}</div>
+                  <div>
+                    <FormattedDate date={weatherData.day} />
+                  </div>
                   <div className="weather-description">
                     {weatherData.description}
                   </div>
