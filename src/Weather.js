@@ -24,7 +24,7 @@ export default function Weather(props) {
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       feelsLike: Math.round(response.data.main.feels_like),
-      imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
 
