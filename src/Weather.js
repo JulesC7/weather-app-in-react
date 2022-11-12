@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Search from "./Search";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 
 import "./Weather.css";
+import "./Search.css";
 
-export default function Weather() {
-  const [city, setCity] = useState("Kyiv");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [loaded, setLoaded] = useState(false);
   const [weatherData, setWeatherData] = useState({});
 
@@ -28,6 +28,13 @@ export default function Weather() {
     });
   }
 
+  function searchCity(event) {
+    setCity(event.target.value);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   if (loaded) {
     return (
       <div className="content">
@@ -36,94 +43,85 @@ export default function Weather() {
           {weatherData.city}, {weatherData.country}
         </div>
         <div className="card-body">
-          <Search />
-          <div className="container week-forecast">
-            <div className="container">
-              <div className="row d-flex justify-content-center">
-                <div className="actual-city col-md-3 text-center">
-                  <div>
-                    <FormattedDate date={weatherData.day} />
-                  </div>
-                  <div className="weather-description">
-                    {weatherData.description}
-                  </div>
-                  <div className="temp-max">
-                    Max temperature: {weatherData.maxTemp}°C
-                  </div>
-                </div>
-                <div className="temperature-in-the-city col-md-3">
-                  <div className="row middle-block">
-                    <span className="input-group-text-svg col-6 d-flex justify-content-end">
-                      <img
-                        src={weatherData.imgUrl}
-                        alt={weatherData.description}
-                        className="float-right"
-                      />
-                    </span>
-                    <span className="col-6 d-flex">
-                      <span className="actual-temp">
-                        {weatherData.temperature}
-                      </span>
-                      <span className="celsius-fahrenheit col-1">
-                        <sup>°C</sup>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div className="another-forecast col-md-3 text-center">
-                  <div className="wind">Wind: {weatherData.wind} km/h</div>
-                  <div className="humidity">
-                    Humidity: {weatherData.humidity}%
-                  </div>
-                  <div className="feels-like">
-                    Feels like {weatherData.feelsLike}°C
-                  </div>
+          <div className="search-container">
+            <div className="search-bar">
+              <form className="input-group" onSubmit={handleSubmit}>
+                <span className="search-label">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </span>
+                <input
+                  type="search"
+                  role="combobox"
+                  autocomplete="off"
+                  className="form-control"
+                  placeholder="Enter a city"
+                  onChange={searchCity}
+                />
+                <input
+                  type="submit"
+                  className="input-group-text"
+                  value="Search"
+                />
+                <button className="current-city input-group-text btn btn-primary">
+                  Current city
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <WeatherInfo data={weatherData} />
+
+          <div className="container short-week-forecast">
+            <div className="row d-flex justify-content-center" id="forecast">
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
               </div>
-            </div>
-            <div className="container short-week-forecast">
-              <div className="row d-flex justify-content-center" id="forecast">
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
+              </div>
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
+              </div>
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
+              </div>
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
+              </div>
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
-                </div>
-                <div className="card week-weather col-sm-1">
-                  <div className="card-body">
-                    <h5 className="card-title">Monday</h5>
-                    <h6 className="week-weather-temperature">15°C</h6>
-                  </div>
+              </div>
+              <div className="card week-weather col-sm-1">
+                <div className="card-body">
+                  <h5 className="card-title">Monday</h5>
+                  <h6 className="week-weather-temperature">15°C</h6>
                 </div>
               </div>
             </div>

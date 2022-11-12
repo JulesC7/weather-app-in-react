@@ -2,10 +2,14 @@ import React from "react";
 
 import "./Search.css";
 
-export default function Search() {
+export default function Search(props) {
+  function searchCity(event) {
+    setCity(event.target.value);
+  }
+
   return (
     <div className="search-container">
-      <div className="search-bar" id="search-bar">
+      <div className="search-bar">
         <form className="input-group">
           <span className="search-label">
             <svg
@@ -25,6 +29,7 @@ export default function Search() {
             autocomplete="off"
             className="form-control"
             placeholder="Enter a city"
+            onChange={searchCity}
           />
           <input type="submit" className="input-group-text" value="Search" />
           <button className="current-city input-group-text btn btn-primary">
