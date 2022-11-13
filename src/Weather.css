@@ -12,9 +12,11 @@
   text-transform: capitalize;
 }
 .celsius-fahrenheit {
-  padding: 27px 0 20px 0;
   font-size: 25px;
   font-weight: 500;
+  position: relative;
+  line-height: 1;
+  top: -34px;
 }
 .actual-temp {
   font-size: 80px;
@@ -28,14 +30,17 @@
   padding: 20px 0 20px 20px;
 }
 .input-group-text-svg {
-  padding: 10px 0 0 0;
-}
-canvas {
-  size: 12px;
+  padding: 0;
+  margin: 0;
 }
 .temperature-in-the-city .active {
   cursor: default;
   color: var(--primary-color);
+}
+.temperature-in-the-city img {
+  position: relative;
+  line-height: 1;
+  top: 10px;
 }
 
 @media (max-width: 900px) {
