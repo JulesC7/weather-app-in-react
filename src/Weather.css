@@ -30,6 +30,9 @@
 .input-group-text-svg {
   padding: 10px 0 0 0;
 }
+canvas {
+  size: 12px;
+}
 .temperature-in-the-city .active {
   cursor: default;
   color: var(--primary-color);
