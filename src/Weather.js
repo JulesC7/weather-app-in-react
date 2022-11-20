@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 import "./Weather.css";
 import "./Search.css";
@@ -86,53 +87,7 @@ export default function Weather(props) {
           </div>
 
           <WeatherInfo data={weatherData} />
-
-          <div className="container short-week-forecast">
-            <div className="row d-flex justify-content-center" id="forecast">
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-              <div className="card week-weather col-sm-1">
-                <div className="card-body">
-                  <h5 className="card-title">Monday</h5>
-                  <h6 className="week-weather-temperature">15°C</h6>
-                </div>
-              </div>
-            </div>
-          </div>
+          <WeatherForecast data={weatherData} />
         </div>
       </div>
     );
