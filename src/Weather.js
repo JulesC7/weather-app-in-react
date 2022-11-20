@@ -16,6 +16,7 @@ export default function Weather(props) {
     console.log(response.data);
     setLoaded(true);
     setWeatherData({
+      coordinates: response.data.coord,
       city: response.data.name,
       country: response.data.sys.country,
       day: new Date(response.data.dt * 1000),
@@ -79,15 +80,12 @@ export default function Weather(props) {
                   className="input-group-text"
                   value="Search"
                 />
-                <button className="current-city input-group-text btn btn-primary">
-                  Current city
-                </button>
               </form>
             </div>
           </div>
 
           <WeatherInfo data={weatherData} />
-          <WeatherForecast data={weatherData} />
+          <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
       </div>
     );

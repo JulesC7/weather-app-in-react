@@ -4,7 +4,7 @@
 .week-weather {
   display: flex;
   justify-content: center;
-  margin: 20px 10px;
+  margin: 10px;
   padding: 0px;
   background: var(--secondary-color);
   box-shadow: 0 8px 9px 0 rgba(31, 38, 135, 0.17);
@@ -13,16 +13,16 @@
   border-radius: 10px;
   border: 1px solid rgba(44, 42, 42, 0.18);
 }
-.week-weather-temperature {
-  padding: 15px 0 0 0;
-  margin: 0 auto;
-}
+
 .card-body {
   text-align: center;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   flex: 1;
-  padding: 15px 0;
+}
+.week-weather-temperature {
+  padding: 15px 0 0 0;
+  margin: 0 auto;
 }
 
 @media (max-width: 900px) {
