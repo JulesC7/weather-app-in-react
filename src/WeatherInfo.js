@@ -20,19 +20,17 @@ export default function weatherInfo(props) {
                 Max temperature: {props.data.maxTemp}°C
               </div>
             </div>
-            <div className="temperature-in-the-city col-md-3">
-              <div className="row middle-block">
-                <span className="col-4 p-0 justify-content-end">
-                  <img
-                    src={props.data.imgUrl}
-                    alt={props.data.description}
-                    className="float-right"
-                  />
-                </span>
-                <span className="col-8 m-0 p-0">
-                  <WeatherTemperature celsius={props.data.temperature} />
-                </span>
-              </div>
+            <div className="temperature-in-the-city row col-md-3">
+              <span className="input-group-text-svg col-6 justify-content-end">
+                <img
+                  src={props.data.imgUrl}
+                  alt={props.data.description}
+                  className="float-right"
+                />
+              </span>
+              <span className="d-flex col-6">
+                <WeatherTemperature celsius={props.data.temperature} />
+              </span>
             </div>
             <div className="another-forecast col-md-3 text-center">
               <div className="wind">Wind: {props.data.wind} km/h</div>
